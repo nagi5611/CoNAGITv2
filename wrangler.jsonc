@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "conagitv2",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-05-10",
+  "triggers": {
+    "crons": ["0 */6 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ENVIRONMENT": "development"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "conagitv2",
+      "database_id": "00000000-0000-0000-0000-000000000001"
+    }
+  ]
+}

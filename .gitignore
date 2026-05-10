@@ -28,6 +28,9 @@ npm-debug.log*
 # IDE (local Cursor/VSCode state; remove this line if you want to commit .cursor)
 .cursor/
 
+# Optional: ER PNG generated locally (see docs/er-diagram-render.md). Remove this line if committing docs/er-diagram.png.
+# docs/er-diagram.png
+
 # Test / coverage
 coverage/
 .nyc_output/

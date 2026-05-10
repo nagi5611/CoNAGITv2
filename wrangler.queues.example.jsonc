@@ -1,0 +1,19 @@
+// wrangler.queues.example.jsonc — メインの wrangler.jsonc にマージする Queues 断片（参考）
+// 使い方: ダッシュボードでキューを作成後、以下をルートの wrangler.jsonc に取り込む。
+// CI の `wrangler deploy --dry-run` を壊さないよう、既定リポジトリには含めない。
+//
+// 本番ではキュー名を環境で分離すること（例: `conagitv2-thumbnails-production` / `conagitv2-thumbnails-staging`）。
+// マージ時は producer の `queue` と consumer の `queue` を同一文字列に揃え、`binding` はコード（Env.THUMBNAIL_QUEUE）と一致させる。{
+  "queues": {
+    "producers": [
+      { "queue": "conagitv2-thumbnails", "binding": "THUMBNAIL_QUEUE" }
+    ],
+    "consumers": [
+      {
+        "queue": "conagitv2-thumbnails",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5
+      }
+    ]
+  }
+}

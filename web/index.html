@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoNAGITv2</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>CoNAGITv2</h1>
+      <p class="muted">
+        MVP — ログイン、グループ／プロジェクト／ファイル、名前変更・ゴミ箱、管理者は監査ログ
+      </p>
+    </header>
+
+    <main class="layout">
+      <section id="auth-section" class="card" aria-labelledby="auth-heading">
+        <h2 id="auth-heading">ログイン</h2>
+        <form id="login-form" class="stack">
+          <label>
+            ユーザー名
+            <input name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            パスワード
+            <input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <button type="submit">ログイン</button>
+        </form>
+        <button type="button" id="logout-btn" class="secondary" hidden>
+          ログアウト
+        </button>
+        <p id="auth-status" class="status" role="status"></p>
+      </section>
+
+      <section id="data-section" class="card" hidden aria-live="polite">
+        <h2>データ</h2>
+        <div class="toolbar">
+          <label>
+            グループ
+            <select id="group-select"></select>
+          </label>
+          <button type="button" id="refresh-projects">プロジェクト再読込</button>
+        </div>
+        <h3>プロジェクト</h3>
+        <ul id="project-list" class="list"></ul>
+        <h3>フォルダ（選択中プロジェクト）</h3>
+        <nav id="folder-nav" class="folder-nav" hidden aria-label="フォルダ階層"></nav>
+
+        <h3>ファイル（選択中プロジェクト）</h3>
+        <p id="file-context" class="muted"></p>
+        <div id="upload-panel" class="upload-panel" hidden>
+          <label class="file-input-label">
+            ファイルを追加
+            <input type="file" id="file-input" />
+          </label>
+          <button type="button" id="upload-btn">アップロード</button>
+          <progress id="upload-progress" value="0" max="100" hidden></progress>
+          <p id="upload-message" class="status" role="status"></p>
+        </div>
+        <ul id="file-list" class="list"></ul>
+
+        <section
+          id="file-detail-section"
+          class="file-detail-section"
+          hidden
+          aria-labelledby="file-detail-heading"
+        >
+          <h4 id="file-detail-heading">ファイル詳細</h4>
+          <p id="file-detail-placeholder" class="muted">
+            ファイル行の「詳細」から選択してください。
+          </p>
+          <dl id="file-properties" class="properties-dl" hidden></dl>
+          <div id="text-edit-block" class="text-edit-block" hidden>
+            <label class="stack">
+              テキスト編集（保存時は <code>text/plain; charset=utf-8</code>）
+              <textarea id="text-edit-body" rows="14" spellcheck="false"></textarea>
+            </label>
+            <p id="text-edit-note" class="muted"></p>
+            <div class="toolbar" style="margin-top: 0.5rem">
+              <button type="button" id="text-save-btn">テキストを保存</button>
+              <span id="text-edit-status" class="status" role="status"></span>
+            </div>
+          </div>
+          <p id="file-detail-load-status" class="status" role="status"></p>
+        </section>
+
+        <section
+          id="preview-section"
+          class="preview-panel"
+          hidden
+          aria-labelledby="preview-heading"
+        >
+          <h4 id="preview-heading">プレビュー</h4>
+          <p id="preview-meta" class="muted"></p>
+          <p id="preview-status" class="status" role="status"></p>
+          <pre id="preview-body" hidden></pre>
+        </section>
+
+        <h3>ゴミ箱（選択中グループ）</h3>
+        <div id="trash-admin-panel" class="trash-admin" hidden></div>
+        <button type="button" id="load-trash-btn">ゴミ箱を読み込む</button>
+        <ul id="trash-list" class="list"></ul>
+        <p id="upload-status" class="muted"></p>
+
+        <section
+          id="admin-audit-section"
+          hidden
+          aria-labelledby="admin-audit-heading"
+        >
+          <h3 id="admin-audit-heading">管理者: 監査ログ</h3>
+          <p class="muted">会社管理者のみ表示されます（フェーズ L）。</p>
+          <div class="toolbar">
+            <button type="button" id="load-audit-reset">監査ログを読み込む</button>
+            <button type="button" id="load-audit-more" class="secondary" hidden>
+              続きを読み込む
+            </button>
+          </div>
+          <ul id="audit-list" class="list"></ul>
+          <p id="audit-status" class="status" role="status"></p>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
