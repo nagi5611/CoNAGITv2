@@ -10,6 +10,8 @@
 | [トラブルシューティング](./troubleshooting.md) | 全員 | ログイン・アップロード・プレビュー・ゴミ箱の切り分け |
 | [フェーズ H の既知の制限](./known-limitations-h.md) | 全員 | ブラウザ対象、モバイル、プレビュー範囲など |
 | [障害・インシデント対応（骨子）](./incident-outline.md) | 運用・当番 | 初動の型、詳細 Runbook へのリンク |
+| [Cloudflare 本番デプロイ（入門）](./cloudflare-production-deploy.md) | 運用・開発 | D1・Secrets・デプロイ方式の比較、環境変数チェックリスト |
+| [AWS S3 + CloudFront セットアップ（入門）](./aws-s3-cloudfront-setup.md) | 運用・開発 | 非公開バケット、IAM、CORS、CloudFront と現行実装の関係 |
 
 運用・障害・リリースの手順は **Runbook** に委譲する（本索引からリンク）。
 

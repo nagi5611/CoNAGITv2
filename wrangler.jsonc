@@ -1,22 +1,30 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "conagitv2",
-  "main": "src/index.ts",
-  "compatibility_date": "2026-05-10",
-  "triggers": {
-    "crons": ["0 */6 * * *"]
-  },
-  "observability": {
-    "enabled": true
-  },
-  "vars": {
-    "ENVIRONMENT": "development"
-  },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "conagitv2",
-      "database_id": "00000000-0000-0000-0000-000000000001"
-    }
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "conagitv2",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-05-10",
+	"triggers": {
+		"crons": [
+			"0 */6 * * *"
+		]
+	},
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"ENVIRONMENT": "production",
+		"SESSION_MAX_AGE_SECONDS": "604800",
+		"AWS_REGION": "ap-northeast-1",
+		"S3_BUCKET": "mmh-conagitv2-mainstrage",
+		"PRESIGN_GET_EXPIRES_SECONDS": "120",
+		"THUMBNAIL_JOBS_ENABLED": "true"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "mmh-conagitv2-main",
+			"database_id": "7262c923-e585-4f4f-ad36-bcdba14adb25",
+			"remote": true
+		}
+	]
 }

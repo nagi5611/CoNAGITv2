@@ -126,6 +126,8 @@ npm run e2e:local
 
 ## デプロイ
 
+本番では **Git 上のレビュー済み変更**を正とし、`wrangler deploy` を **CI/CD で自動化する**構成がよく採用されますが、**必須ではありません**。ローカルから `npm run deploy` する運用も可能です。D1 の `database_id`、リモートへのマイグレ適用、シークレットの扱い、リリース順序の注意点は、入門マニュアル **[docs/manuals/cloudflare-production-deploy.md](docs/manuals/cloudflare-production-deploy.md)** と Runbook **[docs/runbooks/release.md](docs/runbooks/release.md)** を参照してください。AWS 側のバケット・IAM・CORS は **[docs/manuals/aws-s3-cloudfront-setup.md](docs/manuals/aws-s3-cloudfront-setup.md)** にまとめています。
+
 ```bash
 npm run deploy
 ```
