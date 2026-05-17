@@ -19,7 +19,7 @@
     "node": ">=20"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.16.3",
+    "@cloudflare/vitest-pool-workers": "^0.16.6",
     "@cloudflare/workers-types": "^4.20250510.0",
     "@playwright/test": "^1.55.1",
     "@types/node": "^22.15.0",
