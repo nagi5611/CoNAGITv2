@@ -21,7 +21,7 @@
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.16.3",
     "@cloudflare/workers-types": "^4.20250510.0",
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^22.15.0",
     "eslint": "^9.26.0",
     "globals": "^16.0.0",
